@@ -3,23 +3,6 @@
   <q-layout view="hHr lpR fFf">
 
     <!-- header -->
-    <q-header class="bg-pink-2 text-white q-py-lg">
-      <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
-
-        <q-toolbar-title>
-
-          <q-icon name="public" to="/" clickable size="lg" />
-
-          MonSA
-
-        </q-toolbar-title>
-
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer"  />
-
-      </q-toolbar>
-    </q-header>
-
     <q-header elevated class="bg-purple">
       <q-toolbar>
         <q-btn flat round dense icon="menu" class="q-mr-sm" @click="toggleLeftDrawer" />
@@ -36,8 +19,58 @@
     </q-header>
 
     <!-- sidebar gauche -->
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
+    <q-drawer
+      show-if-above
+      v-model="leftDrawerOpen"
+      side="left"
+      bordered
+      :mini="miniState"
+      @mouseover="miniState = false"
+      @mouseout="miniState = true"
+
+    >
       <!-- drawer content -->
+      <q-list padding>
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="inbox" />
+          </q-item-section>
+
+          <q-item-section>
+            Inbox
+          </q-item-section>
+        </q-item>
+
+        <q-item active clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="star" />
+          </q-item-section>
+
+          <q-item-section>
+            Star
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="send" />
+          </q-item-section>
+
+          <q-item-section>
+            Send
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="drafts" />
+          </q-item-section>
+
+          <q-item-section>
+            Drafts
+          </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <!-- sidebar droite -->
@@ -62,7 +95,7 @@
     </q-footer>
 
   </q-layout>
-  
+
 </template>
 
 <script>
@@ -73,6 +106,8 @@ export default {
     const leftDrawerOpen = ref(false)
     const rightDrawerOpen = ref(false)
 
+    const miniState = ref(true)
+
     return {
       leftDrawerOpen,
       toggleLeftDrawer () {
@@ -82,7 +117,9 @@ export default {
       rightDrawerOpen,
       toggleRightDrawer () {
         rightDrawerOpen.value = !rightDrawerOpen.value
-      }
+      },
+
+      miniState
     }
   }
 }
