@@ -9,11 +9,13 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm" @click="toggleLeftDrawer" />
         <q-space ></q-space>
 
-        <q-avatar size="lg">
-
+        <q-avatar size="lg" class="q-mr-sm">
           <q-badge floating color="red">2</q-badge>
-          <img src="https://cdn.quasar.dev/img/avatar.png">
+          <q-btn flat round dense icon="notifications" class="q-mr-sm" />
+        </q-avatar>
 
+        <q-avatar size="lg">
+          <img src="https://cdn.quasar.dev/img/avatar.png">
         </q-avatar>
 
         <q-btn-dropdown
@@ -45,7 +47,7 @@
 
 
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple @click="onItemClick">
               <q-item-section avatar>
                 <q-icon name="send" />
               </q-item-section>
@@ -56,7 +58,7 @@
             </q-item>
 
 
-            <q-item clickable v-ripple>
+            <q-item clickable v-ripple @click="onItemClick">
               <q-item-section avatar>
                 <q-icon name="drafts" />
               </q-item-section>
@@ -216,7 +218,15 @@ export default {
         rightDrawerOpen.value = !rightDrawerOpen.value
       },
 
-      miniState
+      miniState,
+
+      onMainClick () {
+        // console.log('Clicked on main button')
+      },
+
+      onItemClick () {
+        // console.log('Clicked on an Item')
+      }
     }
   }
 }
