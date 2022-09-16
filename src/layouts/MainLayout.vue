@@ -9,8 +9,8 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm" @click="toggleLeftDrawer" />
         <q-space ></q-space>
 
-        <q-btn flat round dense icon="group_add" />
         <q-avatar size="md">
+          <q-badge floating color="red">2</q-badge>
           <img src="https://cdn.quasar.dev/img/avatar.png">
         </q-avatar>
       </q-toolbar>
@@ -81,7 +81,13 @@
     </q-drawer>
 
     <!-- sidebar droite -->
-    <q-drawer v-model="rightDrawerOpen" side="right" behavior="mobile" bordered>
+    <q-drawer
+      v-model="rightDrawerOpen"
+      side="right"
+      behavior="desktop"
+      bordered
+      show-if-above
+    >
       <!-- drawer content -->
     </q-drawer>
 
@@ -90,7 +96,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer class="bg-grey-8 text-white">
+    <!-- <q-footer class="bg-grey-8 text-white">
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>
@@ -99,7 +105,7 @@
           <div>Title</div>
         </q-toolbar-title>
       </q-toolbar>
-    </q-footer>
+    </q-footer> -->
 
   </q-layout>
 
