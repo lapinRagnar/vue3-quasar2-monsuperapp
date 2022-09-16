@@ -1,6 +1,6 @@
 <template>
 
-  <q-layout view="hHr lpR fFf">
+  <q-layout view="hHh lpR fFf">
 
     <!-- header -->
     <q-header elevated class="bg-purple">
@@ -19,8 +19,24 @@
         <q-toolbar-title>
           Mon <strong>Super</strong> App
         </q-toolbar-title>
-        <q-btn flat round dense icon="search" class="q-mr-xs" />
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer"  />
+
+        <q-input
+          rounded
+          borderless
+          v-model="text"
+          label="qu'est ce que tu veux..."
+          label-color="orange"
+          color="red"
+          dark
+          input-style="width: 300px;"
+        >
+          <q-btn flat round dense icon="search" class="q-mr-xs"  />
+        </q-input>
+
+        <q-space />
+
+        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
+
       </q-toolbar>
     </q-header>
 
