@@ -9,10 +9,78 @@
         <q-btn flat round dense icon="menu" class="q-mr-sm" @click="toggleLeftDrawer" />
         <q-space ></q-space>
 
-        <q-avatar size="md">
+        <q-avatar size="lg">
+
           <q-badge floating color="red">2</q-badge>
           <img src="https://cdn.quasar.dev/img/avatar.png">
+
         </q-avatar>
+
+        <q-btn-dropdown
+          fab-mini
+          class="monDropdown"
+          flat
+          unelevated
+
+          size="lg"
+        >
+          <q-list class="largeur_list" padding>
+            <q-item clickable v-close-popup @click="onItemClick" v-ripple >
+              <q-item-section avatar >
+                <q-icon name="settings"/>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>parametres</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup @click="onItemClick" v-ripple>
+              <q-item-section avatar >
+                <q-icon name="post_add"/>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>articles</q-item-label>
+              </q-item-section>
+            </q-item>
+
+
+
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="send" />
+              </q-item-section>
+
+              <q-item-section>
+                Send
+              </q-item-section>
+            </q-item>
+
+
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="drafts" />
+              </q-item-section>
+
+              <q-item-section>
+                Drafts
+              </q-item-section>
+            </q-item>
+
+
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section avatar >
+                <q-icon name="power_settings_new"/>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>se deconnecter</q-item-label>
+              </q-item-section>
+            </q-item>
+
+
+          </q-list>
+
+        </q-btn-dropdown>
+
       </q-toolbar>
 
       <q-toolbar inset class="bg-blue ">
@@ -28,7 +96,7 @@
           label-color="orange"
           color="red"
           dark
-          input-style="width: 300px;"
+          input-style="width: 200px;"
         >
           <q-btn flat round dense icon="search" class="q-mr-xs"  />
         </q-input>
@@ -153,3 +221,14 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+  .monDropdown
+    position: absolute
+    right: 10px
+    top: 19px
+
+  .largeur_list
+    width: 200px
+
+</style>
