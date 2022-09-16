@@ -4,16 +4,22 @@
 
     <!-- header -->
     <q-header elevated class="bg-purple">
+
       <q-toolbar>
         <q-btn flat round dense icon="menu" class="q-mr-sm" @click="toggleLeftDrawer" />
         <q-space ></q-space>
-        <q-btn flat round dense icon="search" class="q-mr-xs" />
+
         <q-btn flat round dense icon="group_add" />
+        <q-avatar size="md">
+          <img src="https://cdn.quasar.dev/img/avatar.png">
+        </q-avatar>
       </q-toolbar>
+
       <q-toolbar inset class="bg-blue ">
         <q-toolbar-title>
-          <span><strong>Quasar</strong> Framework</span>
+          Mon <strong>Super</strong> App
         </q-toolbar-title>
+        <q-btn flat round dense icon="search" class="q-mr-xs" />
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer"  />
       </q-toolbar>
     </q-header>
@@ -27,6 +33,7 @@
       :mini="miniState"
       @mouseover="miniState = false"
       @mouseout="miniState = true"
+      :width="150"
 
     >
       <!-- drawer content -->
